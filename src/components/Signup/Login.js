@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
   const emailRef = useRef();
   const inputPasswordRef = useRef();
 
@@ -33,7 +34,10 @@ const Login = () => {
           alert(data.error.message);
         });
       }
-    });
+    }).then((data) => {
+        localStorage.setItem("idToken",data.idToken);
+        navigate("/welcome");
+    })
     emailRef.current.value="";
     inputPasswordRef.current.value="";
   };
