@@ -1,0 +1,15 @@
+.mailBox {
+  width: 80vw;
+  height: 50vw;
+  background-color: beige;
+  float: left;
+  overflow: scroll;
+}
+.sideNav {
+  width: 20vw;
+  background-color: rgb(171, 142, 108);
+  float: left;
+}
+.sideNav button {
+  width: 100%;
+}

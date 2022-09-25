@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import classes from "./Login.module.css";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../Store/AuthReducer";
+
 
 const Login = () => {
   const navigate = useNavigate();
   const emailRef = useRef();
   const inputPasswordRef = useRef();
+  const dispatch = useDispatch();
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -39,11 +43,15 @@ const Login = () => {
       })
       .then((data) => {
         localStorage.setItem("idToken", data.idToken);
+        dispatch(authActions.login(data.idToken));
+        dispatch(authActions.setEmail(data.email));
+        dispatch(authActions.setCleanEmail(data.email.replace(/[^a-zA-Z]/g,"")));
         navigate("/welcome");
       });
     emailRef.current.value = "";
     inputPasswordRef.current.value = "";
   };
+
   return (
     <div className={classes.loginbox}>
       <h2>Login</h2>
@@ -71,6 +79,7 @@ const Login = () => {
         <div className={classes.btn}>
           <button type="submit">Login</button>
         </div>
+        <Link  to="/forgotpasscode">Forgot Passcode</Link>
         <p>
           Create New account <Link to="/">Signup</Link>
         </p>
