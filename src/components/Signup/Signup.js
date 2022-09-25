@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import classes  from './Signup.module.css';
+
 
 const SignUp = () => {
   const emailRef = useRef();
@@ -45,10 +47,10 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className={classes.loginbox}>
+      <h2>Sign Up</h2>
       <form onSubmit={submitHandler}>
-        <h2>Sign Up</h2>
-        <div>
+        <div className={classes.user_box}>
           <input
             type="email"
             placeholder="Email"
@@ -57,7 +59,7 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
+        <div className={classes.user_box}>
           <input
             type="password"
             placeholder="Password"
@@ -66,7 +68,7 @@ const SignUp = () => {
             autoComplete="on"
           />
         </div>
-        <div>
+        <div className={classes.user_box}>
           <input
             type="password"
             placeholder="Confirm Password"
@@ -75,9 +77,13 @@ const SignUp = () => {
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <div className={classes.btn}>
+          <button type="submit">Submit</button>
+        </div>
         <div>
-            <p>Already Resgistered? <Link to="/login">Login</Link> </p>
+          <p>
+            Already Resgistered? <Link to="/login">Login</Link>{" "}
+          </p>
         </div>
       </form>
     </div>
