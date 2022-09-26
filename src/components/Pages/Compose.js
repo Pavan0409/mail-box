@@ -29,7 +29,7 @@ const Compose = () => {
         method: "POST",
         body: JSON.stringify(emailData),
         headers: {
-          "Content-type": "application/json",
+          "Content-Type": "application/json",
         },
       }
     ).then((res) => {

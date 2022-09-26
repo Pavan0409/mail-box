@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Compose from "./Compose";
 import SentBox from "./SentBox";
 import classes from "./Welcome.module.css";
+import Inbox from "./Inbox";
 
 const Welcome = () => {
   const [composeMailOpen, setComposeMailOpen] = useState(false);
@@ -35,7 +36,8 @@ const Welcome = () => {
       </div>
       <div className={classes.mailBox}>
         {composeMailOpen && <Compose />}
-        {inboxOpen && <div> This is Inbox</div>}
+        {/* {inboxOpen && <div> This is Inbox</div>} */}
+        {inboxOpen && <Inbox />}
         {sentboxOpen && <SentBox />}
       </div>
     </div>

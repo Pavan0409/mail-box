@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import classes  from './Signup.module.css';
-
+import classes from "./Signup.module.css";
 
 const SignUp = () => {
   const emailRef = useRef();
