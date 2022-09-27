@@ -1,15 +1,26 @@
 .mailBox {
   width: 80vw;
   height: 50vw;
-  background-color: beige;
+  background-color: rgb(245,245,243);
   float: left;
   overflow: scroll;
 }
 .sideNav {
   width: 20vw;
-  background-color: rgb(171, 142, 108);
+  /* background-color: rgb(171, 142, 108); */
   float: left;
+  margin-bottom: 20px;
 }
 .sideNav button {
   width: 100%;
+  background-color: rgb(158,193,230);
+  padding: 10px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.sideNav button:hover{
+  color:aliceblue;
 }

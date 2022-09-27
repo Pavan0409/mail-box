@@ -23,7 +23,7 @@ const SentBox = () => {
           <hr />
           <label>Heading: {emails[item].heading}</label>
           <hr />
-          {/* <p dangerouslySetInnerHTML={{ _html: emails[item].body }}></p> */}
+          <p>{emails[item].body.replace(/<[^>]*>/g, "")}</p>
         </p>
       ))}
     </ul>

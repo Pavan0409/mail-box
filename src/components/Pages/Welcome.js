@@ -8,6 +8,7 @@ const Welcome = () => {
   const [composeMailOpen, setComposeMailOpen] = useState(false);
   const [inboxOpen, setInboxOpen] = useState(true);
   const [sentboxOpen, setSentboxOpen] = useState(false);
+  const [count, setCount] = useState(0);
 
   const composeMailClickHandler = () => {
     setInboxOpen(false);
@@ -26,18 +27,17 @@ const Welcome = () => {
   };
   return (
     <div>
-      <h3>Welcome To Mail-box</h3>
+    <h1 style={{fontFamily:"sans-serif", marginLeft:"20px"}}>Welcome to mail box</h1>
       <div className={classes.sidenav}>
         <button onClick={composeMailClickHandler}>Compose Email</button>
         <br />
-        <button onClick={inboxClickHandler}>Inbox</button>
+        <button onClick={inboxClickHandler}>Inbox<span>Unread:{count}</span></button>
         <br />
         <button onClick={sentboxClickHandler}>Outbox</button>
       </div>
       <div className={classes.mailBox}>
         {composeMailOpen && <Compose />}
-        {/* {inboxOpen && <div> This is Inbox</div>} */}
-        {inboxOpen && <Inbox />}
+        {inboxOpen && <Inbox setIsCount={setCount} />}
         {sentboxOpen && <SentBox />}
       </div>
     </div>
