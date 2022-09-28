@@ -34,12 +34,25 @@ const SingleMail = (props) => {
   }, []);
 
   const msg = props.data.email.body.replace(/<[^>]*>/g, "");
-
+  const deleteHandler = () => {
+    fetch(`https://mail-box-95895-default-rtdb.firebaseio.com/sentemails/${endpoint}.json`,
+    {
+      method:"DELETE",
+      headers:{
+        "Content-Type": "application/json",
+      }
+    }).then((res)=>{
+      return res.json();
+    }).then((data)=>{
+      props.onDelete(data);
+    })
+  }
   return (
     <div>
       <button style={{ aligntext: "right" }} onClick={props.onClose}>
         Back
       </button>
+      <button onClick={deleteHandler}>Delete</button>
       <div>
         <span>From</span>
         <span>

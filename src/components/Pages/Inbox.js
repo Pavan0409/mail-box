@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import SingleMail from "./SingleMail";
 
 const Inbox = (props) => {
@@ -7,7 +8,6 @@ const Inbox = (props) => {
   const [emails, setEmails] = useState({});
   const [show, setShow] = useState(false);
   const [singleMail, setSingleMail] = useState("");
-  const cleanUserEmail = useSelector((state) => state.auth.cleanEmail);
 
   useEffect(() => {
     fetch(
@@ -132,7 +132,10 @@ const Inbox = (props) => {
       })}
     </ul>
   ) : (
-    <p>No Emails Found</p>
+    <p>
+      No Emails Found
+      <button onClick={() => onSingleMailCloseHandler()}>Back</button>
+    </p>
   );
 
   const onSingleMailCloseHandler = () => {
@@ -142,15 +145,17 @@ const Inbox = (props) => {
 
   const onSingleMailDeleteHandler = (data) => {
     setEmails(data);
+    setSingleMail("");
   };
 
   return (
     <Fragment>
-      {!singleMail && emailList}
+      {!singleMail && emailList }
       {singleMail && (
         <>
           <SingleMail
             onClose={onSingleMailCloseHandler}
+            onDelete={onSingleMailDeleteHandler}
             data={singleMail}
             setShow={setShow}
           />
