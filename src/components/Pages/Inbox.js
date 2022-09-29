@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import SingleMail from "./SingleMail";
 
 const Inbox = (props) => {
@@ -31,7 +30,7 @@ const Inbox = (props) => {
     let arr = [];
     for (let key in emails) {
       if (emails[key].isRead === true) {
-        arr.unshift(emails[key].isRead);
+        arr.push(emails[key].isRead);
       }
     }
     props.setIsCount(arr.length);
@@ -138,6 +137,10 @@ const Inbox = (props) => {
     </p>
   );
 
+  // setTimeout(() => {
+  //   window.location.reload();
+  // }, 3000);
+
   const onSingleMailCloseHandler = () => {
     setShow(true);
     setSingleMail("");
@@ -150,7 +153,7 @@ const Inbox = (props) => {
 
   return (
     <Fragment>
-      {!singleMail && emailList }
+      {!singleMail && emailList}
       {singleMail && (
         <>
           <SingleMail

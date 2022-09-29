@@ -22,8 +22,7 @@ const Compose = () => {
       to: toEmailRef.current.value,
       heading: emailHeadingRef.current.value,
       body: draftToHtml(convertToRaw(editorState.getCurrentContent())),
-      isRead:true,
-      // id:v4(),
+      isRead: true,
     };
     fetch(
       `https://mail-box-95895-default-rtdb.firebaseio.com/${CleanUserEmail}sentemails.json`,

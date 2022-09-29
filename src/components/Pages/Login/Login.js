@@ -1,12 +1,11 @@
 import React, { useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from "./Login.module.css";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../Store/AuthReducer";
 
 
 const Login = () => {
-  const navigate = useNavigate();
   const emailRef = useRef();
   const inputPasswordRef = useRef();
   const dispatch = useDispatch();
@@ -46,10 +45,11 @@ const Login = () => {
         dispatch(authActions.login(data.idToken));
         dispatch(authActions.setEmail(data.email));
         dispatch(authActions.setCleanEmail(data.email.replace(/[^a-zA-Z]/g,"")));
-        navigate("/welcome");
+        window.location.href = "/welcome";
       });
     emailRef.current.value = "";
     inputPasswordRef.current.value = "";
+    
   };
 
   return (
