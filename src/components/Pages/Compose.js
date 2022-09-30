@@ -40,6 +40,9 @@ const Compose = () => {
     toEmailRef.current.value = "";
     emailHeadingRef.current.value = "";
     setEditorState(EditorState.createEmpty());
+    setTimeout(() => {
+      window.location.reload();
+    },1000);
   };
 
   return (
@@ -47,7 +50,7 @@ const Compose = () => {
       <label>To</label>
       <input type="email" required ref={toEmailRef} />
       <br />
-      <label>Heading</label>
+      <label>Subject</label>
       <input type="text" ref={emailHeadingRef} />
       <div
         style={{

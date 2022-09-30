@@ -48,13 +48,30 @@ const SentBox = () => {
             id={item}
             onClick={openEmailClickHandler}
             style={{
-              border: "1px solid black",
+              border: "3px solid black",
               textAlign: "left",
-              marginTop: "14px",
-              borderRadius: "5px",
+              marginTop: "10px",
+              borderRadius: "8px",
+              height: "50px",
+              overflow: "hidden",
             }}
             key={item}
           >
+            <div
+              style={{
+                backgroundColor: emails
+                  ? emails[item]
+                    ? emails[item].isRead
+                      ? "blue"
+                      : "white"
+                    : ""
+                  : "",
+                height: "10px",
+                width: "10px",
+                marginTop: "7px",
+                border: "1px solid black",
+              }}
+            ></div>
             <div
               style={{
                 paddingRight: "10px",
@@ -102,21 +119,6 @@ const SentBox = () => {
                     {emails[item].body.replace(/<[^>]*>/g, "")}
                   </span>
                 </div>
-                <div
-                  style={{
-                    backgroundColor: emails
-                      ? emails[item]
-                        ? emails[item].isRead
-                          ? "blue"
-                          : "white"
-                        : ""
-                      : "",
-                    height: "10px",
-                    width: "10px",
-                    marginTop: "7px",
-                    border: "1px solid black",
-                  }}
-                ></div>
               </div>
             </div>
             <br />

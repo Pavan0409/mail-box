@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Compose from "./Compose";
 import SentBox from "./SentBox";
-import classes from "./Welcome.module.css";
 import Inbox from "./Inbox";
 import { useNavigate } from "react-router-dom";
 import { authActions } from "../Store/AuthReducer";
 import { useDispatch } from "react-redux";
+import classes from "./Welcome.module.css";
 
 const Welcome = () => {
   const [composeMailOpen, setComposeMailOpen] = useState(false);
@@ -15,13 +15,11 @@ const Welcome = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
-
   const logoutHandler = () => {
     localStorage.removeItem("idToken");
     dispatch(authActions.logout());
     navigate("/login");
-  }
+  };
 
   const composeMailClickHandler = () => {
     setInboxOpen(false);
@@ -40,19 +38,25 @@ const Welcome = () => {
   };
   return (
     <div>
-    <h1>Welcome to mail box</h1>
-     <button onClick={logoutHandler}>Log Out</button>
-      <div className={classes.sidenav}>
-        <button onClick={composeMailClickHandler}>Compose Email</button>
-        <br />
-        <button onClick={inboxClickHandler}>Inbox<span>Unread:{count}</span></button>
-        <br />
-        <button onClick={sentboxClickHandler}>Outbox</button>
-      </div>
-      <div className={classes.mailBox}>
-        {composeMailOpen && <Compose />}
-        {inboxOpen && <Inbox setIsCount={setCount} />}
-        {sentboxOpen && <SentBox />}
+      <h1>
+        Welcome to mail box <br />{" "}
+        <button onClick={logoutHandler}>Log Out</button>
+      </h1>
+      <div className={classes.main}>
+        <div className={classes.sideNav}>
+          <button onClick={composeMailClickHandler}>Compose Email</button>
+          <br />
+          <button onClick={inboxClickHandler}>
+            Inbox<span>Unread:{count}</span>
+          </button>
+          <br />
+          <button onClick={sentboxClickHandler}>Outbox</button>
+        </div>
+        <div className={classes.mailBox}>
+          {composeMailOpen && <Compose />}
+          {inboxOpen && <Inbox setIsCount={setCount} />}
+          {sentboxOpen && <SentBox />}
+        </div>
       </div>
     </div>
   );

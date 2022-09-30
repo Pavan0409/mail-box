@@ -1,26 +1,52 @@
+.main{
+ display: flex;
+ margin-left: 0%;
+
+}
+
+h1 {
+  text-align: center;
+}
+
+h1 button{
+   border-radius: 4px;
+   width: 5%;
+   height: 1.5rem; 
+   background-color: crimson;
+}
+
+h1 button:hover{
+  color: darkorange;
+}
+
 .mailBox {
-  width: 80vw;
-  height: 50vw;
-  background-color: rgb(245,245,243);
-  float: left;
-  overflow: scroll;
-}
-.sideNav {
   width: 100%;
-  /* background-color: rgb(171, 142, 108); */
-  float: left;
-  margin-bottom: 20px;
+  height: 50vw;
+  background-color: rgb(236, 191, 214);
+  /* float: right; */
+  overflow: scroll;
+  /* display: inline-flex; */
+  margin-right: 0%;
+  border-radius: 15px;
 }
+
+.sideNav {
+  width: 12%;
+  /* float: center; */
+}
+
 .sideNav button {
   width: 100%;
-  background-color: rgb(158,193,230);
-  padding: 10px;
+  height: 30px;
+  background-color: rgb(194, 158, 230);
+  padding: 5px;
   margin-bottom: 4px;
-  border-radius: 8px;
-  margin-left: 20px;
-  font-size: 16px;
+  border-radius: 6px;
+  margin-left: 0%;
+  font-size: 12px;
   font-weight: bold;
 }
+
 .sideNav button:hover{
-  color:aliceblue;
+  color:rgb(4, 178, 109);
 }
